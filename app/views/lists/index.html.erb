@@ -1,0 +1,10 @@
+<h1>Lists</h1>
+
+<ol>
+    <% @lists.each do |list| %>
+  <li>
+      <%= list.name %>
+      <%= link_to 'More Details', list_path(list) %>
+  </li>
+    <% end %>
+</ol>
