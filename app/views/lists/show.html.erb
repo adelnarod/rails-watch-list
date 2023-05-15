@@ -1,0 +1,22 @@
+
+<div class="container">
+  <h1 class="mb-5"><%= @list.name %></h1>
+  <div class="container">
+    <% @movie_list.each do |movie| %>
+      <div class="card-product m-3">
+        <%= image_tag movie.poster_url %>
+        <div class="card-product-infos p-3">
+          <h2><%= movie.title %></h2>
+          <p><%= movie.overview %></p>
+          <p>Comment: <%= Bookmark.find_by(movie: movie, list: @list).comment %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-5 btn btn-success rounded">
+    <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "text-decoration-none" %>
+  </div>
+  <div class="mt-5 btn btn-primary rounded">
+    <%= link_to "Back", lists_path, class: "text-decoration-none text-light" %>
+  </div>
+</div>
